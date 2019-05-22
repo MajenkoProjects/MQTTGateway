@@ -5,6 +5,8 @@ This sketch will turn an ESP-01 into a UART to MQTT gateway.  It uses a very sim
 serial protocol to configure the WiFi and MQTT serrtings, and to subscribe to and
 publish messages to topics.
 
+Requires my CLI library: https://github.com/MajenkoLibraries/CLI
+
 The default baud rate is 9600.
 
 Commands
