@@ -88,4 +88,61 @@ Or:
 
     %PUB weather/temperature 34.2
 
+----
+
+Example Arduino Sketch
+----------------------
+
+```c++
+#include <SoftwareSerial.h>
+
+SoftwareSerial ESP(10, 11);
+
+void setup() {
+    ESP.begin(9600);
+
+    ESP.println("set ssid MyWifi");
+    ESP.find('\n');
+    ESP.println("set psk MyWifiPassword");
+    ESP.find('\n');
+
+    ESP.println("set server io.adafruit.com");
+    ESP.find('\n');
+    ESP.println("set port 1883");
+    ESP.find('\n');
+    ESP.println("set devid MyDevice");
+    ESP.find('\n');
+    ESP.println("set user myname");
+    ESP.find('\n');
+    ESP.println("set pass mypass");
+}
+
+void loop() {
+    ESP.print("pub analog/read/0 ");
+    ESP.println(analogRead(0));
+    ESP.find('\n');
+
+    ESP.print("pub analog/read/1 ");
+    ESP.println(analogRead(1));
+    ESP.find('\n');
+
+    ESP.print("pub analog/read/2 ");
+    ESP.println(analogRead(2));
+    ESP.find('\n');
+
+    ESP.print("pub analog/read/3 ");
+    ESP.println(analogRead(3));
+    ESP.find('\n');
+
+    ESP.print("pub analog/read/4 ");
+    ESP.println(analogRead(4));
+    ESP.find('\n');
+
+    ESP.print("pub analog/read/5 ");
+    ESP.println(analogRead(5));
+    ESP.find('\n');
+
+    delay(5000);
+}
+```
 
